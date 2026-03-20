@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BME 2001/BME2001.md",
+                "file": "BIO 3213/BIO 3213.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BME2001"
-            }
-          },
-          {
-            "id": "10ad0401a6261bd2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ECE 3070/ECE 3070.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ECE 3070"
+              "title": "BIO 3213"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "48fa38334c212d11",
@@ -109,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ECE 3070/ECE 3070.md",
+                "file": "BIO 3213/BIO 3213.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ECE 3070"
+              "title": "Backlinks for BIO 3213"
             }
           },
           {
@@ -128,12 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ECE 3070/ECE 3070.md",
+                "file": "BIO 3213/BIO 3213.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from ECE 3070"
+              "title": "Outgoing links from BIO 3213"
             }
           },
           {
@@ -171,17 +157,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ECE 3070/ECE 3070.md",
+                "file": "BIO 3213/BIO 3213.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ECE 3070"
+              "title": "Outline of BIO 3213"
             }
           },
           {
-            "id": "aaf273f8b877127b",
+            "id": "d446719a3b9c4834",
             "type": "leaf",
             "state": {
               "type": "git-view",
@@ -195,7 +181,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 258.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -211,14 +197,30 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "10ad0401a6261bd2",
+  "active": "4aec7d250ce62978",
   "lastOpenFiles": [
-    "ECE 3070/images/7092580a-6017-453a-b041-26669feb2ccf.png",
-    "BME 2001/BME2001.md",
-    "ECE 3070/images",
+    "dad22c00cc41a014b3ce2a00ea823f90.jpg",
+    "c3c6bab4f51c583700efa1bf257d6486.jpg",
+    "Untitled.canvas",
+    "BIO 3213/BIO 3213.md",
+    "Pasted image 20260320203949.png",
+    "Pasted image 20260320190941.png",
     "ECE 3070/ECE 3070.md",
+    "BME 2001/BME2001.md",
+    "Untitled 4.canvas",
+    "Untitled 3.canvas",
+    "Untitled 2.canvas",
+    "Untitled 1.canvas",
+    "BME 2001/images/2026-03-09-20-43-47.png",
+    "BME 2001/images/2026-03-09-20-03-27.png",
+    "BME 2001/images/2026-03-09-17-43-16.png",
+    "BME 2001/images/2026-03-09-17-34-25.png",
+    "BIO 3213/images",
+    "BIO 3213",
+    "Untitled Kanban.md",
+    "ECE 3070/images/7092580a-6017-453a-b041-26669feb2ccf.png",
+    "ECE 3070/images",
     "ECE 3070",
-    "Untitled.base",
-    "Untitled.canvas"
+    "Untitled.base"
   ]
 }
