@@ -11,14 +11,12 @@
             "id": "4aec7d250ce62978",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "BIO 3213/BIO 3213.md",
-                "mode": "source",
-                "source": false
+                "file": "BIO 3213/images/dad22c00cc41a014b3ce2a00ea823f90.jpg"
               },
-              "icon": "lucide-file",
-              "title": "BIO 3213"
+              "icon": "lucide-image",
+              "title": "dad22c00cc41a014b3ce2a00ea823f90"
             }
           }
         ]
@@ -78,8 +76,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300.5
   },
   "right": {
     "id": "48fa38334c212d11",
@@ -197,14 +194,16 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4aec7d250ce62978",
+  "active": "510f752b5360754c",
   "lastOpenFiles": [
-    "dad22c00cc41a014b3ce2a00ea823f90.jpg",
+    "key.txt.pub",
+    "key.txt",
+    "BIO 3213/BIO 3213.md",
+    "BIO 3213/images/dad22c00cc41a014b3ce2a00ea823f90.jpg",
     "c3c6bab4f51c583700efa1bf257d6486.jpg",
     "Untitled.canvas",
-    "BIO 3213/BIO 3213.md",
     "Pasted image 20260320203949.png",
-    "Pasted image 20260320190941.png",
+    "BIO 3213/images/Pasted image 20260320190941.png",
     "ECE 3070/ECE 3070.md",
     "BME 2001/BME2001.md",
     "Untitled 4.canvas",
