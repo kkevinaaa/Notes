@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "327adcda98b74bce",
+        "id": "9d0671da9f773dfc",
         "type": "tabs",
         "children": [
           {
-            "id": "4aec7d250ce62978",
+            "id": "391220f4753ed017",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "BIO 3213/images/dad22c00cc41a014b3ce2a00ea823f90.jpg"
+                "file": "BIO 3213/BIO 3213.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "dad22c00cc41a014b3ce2a00ea823f90"
+              "icon": "lucide-file",
+              "title": "BIO 3213"
             }
           }
         ]
@@ -72,11 +74,13 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300.5
+    "width": 300.5,
+    "collapsed": true
   },
   "right": {
     "id": "48fa38334c212d11",
@@ -172,6 +176,26 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "a231efa3013192c5",
+            "type": "leaf",
+            "state": {
+              "type": "mermaid-toolbar-view",
+              "state": {},
+              "icon": "trident-custom",
+              "title": "Mermaid Toolbar"
+            }
+          },
+          {
+            "id": "d33d42a5f40c264a",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
           }
         ],
         "currentTab": 5
@@ -191,15 +215,23 @@
       "bases:Create new base": false,
       "obsidian-kanban:Create new board": false,
       "obsidian-git:Open Git source control": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "510f752b5360754c",
+  "active": "391220f4753ed017",
   "lastOpenFiles": [
+    "Pasted image 20260321212450.png",
+    "Pasted image 20260321212430.png",
+    "Pasted image 20260321210444.png",
+    "BIO 3213/images/251efea601b0f4c14c4dcdd366d9993a.jpg",
+    "BIO 3213/images/Pasted image 20260321202828.png",
+    "BIO 3213/BIO 3213.md",
+    "BIO 3213/images/Pasted image 20260321204922.png",
+    "BIO 3213/images/Pasted image 20260321200924.png",
+    "BIO 3213/images/dad22c00cc41a014b3ce2a00ea823f90.jpg",
     "key.txt.pub",
     "key.txt",
-    "BIO 3213/BIO 3213.md",
-    "BIO 3213/images/dad22c00cc41a014b3ce2a00ea823f90.jpg",
     "c3c6bab4f51c583700efa1bf257d6486.jpg",
     "Untitled.canvas",
     "Pasted image 20260320203949.png",
@@ -210,14 +242,9 @@
     "Untitled 3.canvas",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
-    "BME 2001/images/2026-03-09-20-43-47.png",
-    "BME 2001/images/2026-03-09-20-03-27.png",
-    "BME 2001/images/2026-03-09-17-43-16.png",
-    "BME 2001/images/2026-03-09-17-34-25.png",
     "BIO 3213/images",
     "BIO 3213",
     "Untitled Kanban.md",
-    "ECE 3070/images/7092580a-6017-453a-b041-26669feb2ccf.png",
     "ECE 3070/images",
     "ECE 3070",
     "Untitled.base"
