@@ -20,8 +20,45 @@
               "icon": "lucide-file",
               "title": "BIO 3213"
             }
+          },
+          {
+            "id": "128d73ee7f651a8e",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "BIO 3213/images/Pasted image 20260321210444.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260321210444"
+            }
+          },
+          {
+            "id": "114587cd52bdca68",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "BIO 3213/images/Pasted image 20260321212430.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260321212430"
+            }
+          },
+          {
+            "id": "10045d2bac948d40",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "BIO 3213/images/Pasted image 20260321212450.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260321212450"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -74,13 +111,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300.5,
-    "collapsed": true
+    "width": 300.5
   },
   "right": {
     "id": "48fa38334c212d11",
@@ -219,14 +254,14 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "391220f4753ed017",
+  "active": "510f752b5360754c",
   "lastOpenFiles": [
-    "Pasted image 20260321212450.png",
-    "Pasted image 20260321212430.png",
-    "Pasted image 20260321210444.png",
+    "BIO 3213/images/Pasted image 20260321212430.png",
+    "BIO 3213/images/Pasted image 20260321210444.png",
+    "BIO 3213/BIO 3213.md",
+    "BIO 3213/images/Pasted image 20260321212450.png",
     "BIO 3213/images/251efea601b0f4c14c4dcdd366d9993a.jpg",
     "BIO 3213/images/Pasted image 20260321202828.png",
-    "BIO 3213/BIO 3213.md",
     "BIO 3213/images/Pasted image 20260321204922.png",
     "BIO 3213/images/Pasted image 20260321200924.png",
     "BIO 3213/images/dad22c00cc41a014b3ce2a00ea823f90.jpg",
@@ -235,7 +270,6 @@
     "c3c6bab4f51c583700efa1bf257d6486.jpg",
     "Untitled.canvas",
     "Pasted image 20260320203949.png",
-    "BIO 3213/images/Pasted image 20260320190941.png",
     "ECE 3070/ECE 3070.md",
     "BME 2001/BME2001.md",
     "Untitled 4.canvas",
