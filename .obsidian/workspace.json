@@ -13,12 +13,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BIO 3213/BIO 3213.md",
+                "file": "BME 3200/BME3200.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BIO 3213"
+              "title": "BME3200"
+            }
+          },
+          {
+            "id": "ca71f614f081d537",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "BIO 3213/images/IMG_20260322_141347.jpg"
+              },
+              "icon": "lucide-image",
+              "title": "IMG_20260322_141347"
             }
           }
         ]
@@ -78,7 +90,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300.5
+    "width": 300.5,
+    "collapsed": true
   },
   "right": {
     "id": "48fa38334c212d11",
@@ -184,16 +197,6 @@
               "icon": "trident-custom",
               "title": "Mermaid Toolbar"
             }
-          },
-          {
-            "id": "d33d42a5f40c264a",
-            "type": "leaf",
-            "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
-            }
           }
         ],
         "currentTab": 5
@@ -214,19 +217,21 @@
       "bases:Create new base": false,
       "obsidian-kanban:Create new board": false,
       "obsidian-git:Open Git source control": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "510f752b5360754c",
+  "active": "391220f4753ed017",
   "lastOpenFiles": [
+    "BME3200/Untitled.md",
+    "BME 3200/BME3200.md",
+    "BIO 3213/BIO 3213.md",
+    "BIO 3213/images/IMG_20260322_141347.jpg",
     "BIO 3213/images/Pasted image 20260324012435.png",
     "BIO 3213/images/Pasted image 20260324012331.png",
     "BIO 3213/images/Pasted image 20260324012312.png",
     "BIO 3213/images/Pasted image 20260324012226.png",
     "BIO 3213/images/Pasted image 20260322165123.png",
     "BIO 3213/images/Pasted image 20260322163001.md",
-    "BIO 3213/BIO 3213.md",
     "111.md",
     "50%.md",
     "[saturate 50%.md",
@@ -234,8 +239,6 @@
     "BIO 3213/images/Pasted image 20260324005030.png",
     "BIO 3213/images/Pasted image 20260324003455.png",
     "BIO 3213/images/Pasted image 20260323210448.png",
-    "BIO 3213/images/Pasted image 20260323210412.png",
-    "BIO 3213/images/Pasted image 20260323210311.png",
     "saturate 50%.md",
     "key.txt.pub",
     "key.txt",
