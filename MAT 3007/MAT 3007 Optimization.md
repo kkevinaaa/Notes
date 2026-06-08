@@ -327,13 +327,7 @@ While _minimizing_ absolute values is perfectly linearizable, **maximizing** abs
 
 ### 2.4.5 Remarks:
 
-**Convex Set**
-
-A set $S \subset \mathbb{R}^n$ is **convex** if and only if:
-
-> For any two points $x, y \in S$ and any scalar $\lambda \in [0, 1]$, their **convex combination** $\lambda x + (1-\lambda) y$ also belongs to $S$.
-
-**Intuition**: The entire line segment connecting any two points in the set lies entirely within the set. A convex set has no holes, no disconnected parts, and no indentations.
+**[[#^533072|Convex Set]]**
 
  **Closed Half-Space**
  
@@ -347,48 +341,82 @@ Since every half-space is a convex set, and the intersection of convex sets rema
 
 > 在优化中，每一个线性不等式都对应一个半空间（half-space）。AND 操作 = 集合的交集，OR 操作 = 集合的并集。
 > 交集（AND）保持凸性：任意多个凸集的交集仍然是凸集；并集（OR）破坏凸性：两个凸集的并集几乎总是非凸的。
+
 # 3 Lecture 3: Linear Programming: Geometry
 
-## 3.1 Graphical Solutions and Geometric Observations (图形法与几何观察)
+## 3.1 Graphical Solutions and Geometric Observations
 
-- **Graphical Method**: Solved by mapping the feasible region and shifting level lines ($c^\top x = c$) to find the boundary point that optimizes the objective.
-    
-- **Key Visual Observations**: The feasible region forms a geometric polyhedron , the optimal solution tends to occur at a vertex or corner , and constraints can be categorized as active or inactive at the optimum.
-    
+**Graphical Method**: Solved by mapping the feasible region and shifting level lines ($c^\top x = c$) to find the boundary point that optimizes the objective.
 
-## 3.2 Polyhedrons and Convexity Definitions (多面体与凸性定义)
+<div align="center"> 
+<img src="Pasted image 20260608022021.png"  style="max-width: 80%; height: auto;"> 
+</div>
 
-- **Polyhedron**: A set that can be mathematically expressed in the form $\{x \in \mathbb{R}^n : Ax \ge b\}$. The standard form constraint set is proven to be a polyhedron.
-    
-- **Convex Set**: A set $S$ is convex if, for any two points $x, y \in S$, the entire connecting line segment lies within the set ($\lambda x + (1-\lambda)y \in S$ for all $\lambda \in [0,1]$).
+- The feasible region of an LP is a polyhedron.
+- The optimal solution tends to be a vertex/corner of the feasible region.
+- Some constraints are active at the optimal solution ($2x_2 ≤ 200$, $x_1 + x_2 ≤ 150$), some are inactive ($x_1 < 100$).
+
+## 3.2 Polyhedrons and Convexity Definitions
+
+- **Polyhedron**: A set that can be mathematically expressed in the form $\{x \in \mathbb{R}^n : Ax \ge b\}$. The standard form constraint set is proven to be a polyhedron
+	    We can write it as $\boldsymbol{Ax} ≥ b, \boldsymbol{Ax} ≤ b, \boldsymbol I · x ≥ 0$ where $\boldsymbol I$ is the identity matrix.
+	
+- **Convex Set**: A set $S$ is convex if, for any two points $x, y \in S$, the entire connecting line segment lies within the set ($\lambda x + (1-\lambda)y \in S, \forall \lambda \in [0,1]$).
+     ^533072
+     **Intuition**: The entire line segment connecting any two points in the set lies entirely within the set. A convex set has no holes, no disconnected parts, and no indentations.
     
 - **Convex Combination**: A weighted sum $\sum_{i=1}^n \lambda_i x_i$ where all weights satisfy $\lambda_i \ge 0$ and $\sum_{i=1}^n \lambda_i = 1$.
-    
-- **Extreme Point (Vertex/Corner)**: A point $x$ within a polyhedron $P$ is an extreme point if it cannot be expressed as a convex combination of any two other distinct points in $P$.
+	    **直观理解**: 凸组合就是 "带约束的加权平均"。对于 $n$ 个点 $x_1,x_2,\dots,x_n$, 它们的凸组合是  $\sum_{i=1}^n \lambda_i x_i$，其中权重 $λ_i$ 必须满足：
+	    
+	- **非负性**：$\lambda_i \geq 0$ 对所有 $i$ 成立
+		
+	- **归一性**：$\lambda_1 + \lambda_2 + \dots + \lambda_k = 1$
+ 
+- **Extreme Point (Vertex/Corner)**: A point $x$ within a polyhedron $P$ is an extreme point if it cannot be expressed as a **convex combination** of any two other distinct points in $P$.
     
 
-## 3.3 Algebraic Representation: Basic Solutions (代数表示：基本解)
+## 3.3 Algebraic Representation: Basic Solutions
 
-- **Standard Assumptions**: In the standard form LP, matrix $A$ is assumed to possess linearly independent rows (full row rank $m$). Failing this implies either redundant or inconsistent constraints.
+In the standard form LP, matrix $A$ is assumed to possess **linearly independent** rows (full row rank $m$). Failing this implies either redundant or inconsistent constraints.
+
+**Basic Solution (BS) Definition**: A vector $x$ is a basic solution if and only if 
+
+1. $\boldsymbol{Ax} = b$
+	
+2. There exist $m$ indices $B(1), \dots, B(m)$ such that their corresponding columns$$\begin{bmatrix}
+	& | & | & & | \\
+	&A_{B(1)} &A_{B(2)} &\cdots &A_{B(m)} \quad \\
+	& | & | & & | 
+	\end{bmatrix}
+	$$
+	are linearly independent and $x_i=0$ for $i \neq B(1),\dots,B(m)$
+	
+	$\Rightarrow$ "稀疏性" 要求：存在 m 个线性无关的列，使得**所有其他列对应的变量都等于 0**
+
+> - 线性方程组 $Ax = b$ 的所有解构成的集合，是一个维度为 $n - m$ 的仿射子空间（Affine Subspace）。仿射子空间就是把一个线性子空间 (如 $Ax=0$ 的解 $N(A)$ ) 沿着某个向量(如 $Ax=b$ 的一个特解 $x_0$ ) 平移后得到的空间。
+> - 仿射子空间最核心的性质就是**平坦性**：解空间里任意两点的连线，仍然完全在解空间里；解空间里没有任何弯曲、凹陷或凸起。
+> - 线性规划的可行域不是整个仿射子空间，而是**仿射子空间**和**非负卦限**的交集，也就是在 $Ax = b$ 的解集合上，再加上所有变量非负的约束 $x \geq 0$。
+
+> - 在 n 维空间 $\mathbb{R}^n$ 中，第i个坐标超平面就是 $H_i = \{ x \in \mathbb{R}^n \mid x_i = 0\}$。基本解就是仿射子空间与 $n - m$ 个坐标超平面 $x_i = 0$ 的交点。
+
+**Procedure to Calculate a Basic Solution**:
+
+1. Choose $m$ linearly independent columns of $A$ (called basic variables) to form the basis matrix $A_B$.
+	
+2. Enforce all non-basic variables to equal 0 ($x_N = 0$).
+	
+	当你令**非基变量等于 0** 时，本质上就是把由 $Ax=b$ 构成的仿射子空间 $P$，去和某（几）个坐标面（边界）相交。
+	
+3. Solve the remaining linear system to find the unique basic variables: $x_B = A_B^{-1}b$.
     
-- **Basic Solution (BS) Definition**: A vector $x$ is a basic solution if and only if $Ax = b$ and there exist $m$ indices $B(1), \dots, B(m)$ such that their corresponding columns in $A$ are linearly independent, and all other non-basic entries $x_i = 0$.
-    
-- **Procedure to Calculate a Basic Solution**:
-    
-    1. Choose $m$ linearly independent columns of $A$ to form the basis matrix $A_B$.
-        
-    2. Enforce all non-basic variables to equal 0 ($x_N = 0$).
-        
-    3. Solve the remaining linear system to find the unique basic variables: $x_B = A_B^{-1}b$.
-        
-- **Properties of Basic Solutions**: A basic solution is solely determined by the constraints and is independent of the objective function. The number of non-zero entries cannot exceed $m$. The maximum possible number of basic solutions is finite, bounded by the combination formula $C(n,m) = \frac{n!}{m!(n-m)!}$.
+- **Properties of Basic Solutions**: A basic solution is solely determined by the constraints and is independent of the objective function. The maximum possible number of basic solutions is finite, bounded by the combination formula $C(n,m) = \frac{n!}{m!(n-m)!}$.
     
 
 ## 3.4 Basic Feasible Solutions (BFS) (基本可行解)
 
-- **Definition**: A Basic Solution $x$ that additionally satisfies the non-negativity constraint $x \ge 0$.
-    
-- **The Equivalence Theorem**: For a standard form LP polyhedron, a point $x$ is a geometric **extreme point** if and only if it is an algebraic **basic feasible solution (BFS)**.
+**Definition**: A Basic Solution $x$ that additionally satisfies the non-negativity constraint $x \ge 0$.
+
+**The Equivalence Theorem**: For a standard form LP polyhedron, a point $x$ is a geometric **extreme point** if and only if it is an algebraic **basic feasible solution (BFS)**.
     
 
 ## 3.5 Fundamental Theorem of Linear Programming (线性规划基本定理)
@@ -398,9 +426,6 @@ Since every half-space is a convex set, and the intersection of convex sets rema
     1. If the standard form LP feasible set is nonempty, there must exist at least one basic feasible solution.
         
     2. If the problem possesses an optimal solution, there must be at least one optimal solution that is also a basic feasible solution.
-        
-- **Crucial Implication**: To search for an optimal solution, algorithms only need to inspect the finite set of basic feasible solutions. Any LP with an optimal solution guarantees an optimal point containing at most $m$ positive entries.
-    
-- **Motivation for the Simplex Method**: Although the number of BFS is finite, checking them all via brute-force is computationally impossible for large dimensions because $C(n,m)$ grows exponentially (e.g., $C(1000, 100) \approx 10^{143}$). This creates the direct need for an intelligent search strategy: **The Simplex Method**.
+
 
 
