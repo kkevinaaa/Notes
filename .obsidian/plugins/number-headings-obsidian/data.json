@@ -7,7 +7,7 @@
   "auto": true,
   "separator": "",
   "contents": "",
-  "skipHeadings": "",
+  "skipHeadings": "^skipped",
   "startAt": "",
   "off": false
 }

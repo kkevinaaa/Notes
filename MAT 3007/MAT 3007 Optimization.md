@@ -132,7 +132,7 @@ The problem aims to find the shortest path from a starting source node $s$ to a 
 
 - **Definition**: An LP is in standard form if it is expressed as:
     $$\begin{align*} \underset{x \in \mathbb{R}^n} {\text{minimize }} & c^\top x \\ \text{subject to } & Ax = b \\ & x \ge 0 \end{align*}$$
-    where $A$ is an $m \times n$ matrix with $m < n$, and $b \in \mathbb{R}^m$.
+    where $A$ is an $m \times n$ matrix and $b \in \mathbb{R}^m$.
 
 > Any LP can be written in the standard form.
 
@@ -164,7 +164,7 @@ An air traffic controller needs to control the landing times of $n$ aircrafts:
 - Flight $j$ must land in time interval $[aj ,\space bj ]$. 
 - The objective is to maximize the minimum separation time, which is the interval between two landings.
 
-**Decision variables:** Let $t_j$ be the landing time of the flight $j$. Then the seperation time in between: $t_j - t_{j-1}$.
+**Decision variables:** Let $t_j$ be the landing time of the flight $j$. Then the separation time in between: $t_{j+1} - t_{j}$.
 
 **Optimization problem (P1):** 
 $$\begin{align}
@@ -190,7 +190,7 @@ $$
 We now prove that the optimal value $(z^*)$ of the original problem equals the optimal value $(\Delta^*)$ of this LP.  
 The idea is a **two‑sided inequality** (squeeze method).
 
-**Proof**
+#### $\boxed{\textbf{Proof}}$ ^skipped
 
 **Step 1: $z^* \le \Delta^*$**
 
@@ -250,7 +250,7 @@ The two optimization problems yield identical optimal values, proving that the n
 Consider the original optimization problem (2) and its reformulated counterpart (3):
 
 $$\begin{align*} (2) \quad \text{minimize}_{x \in \Omega} \quad & \sum_{i=1}^m f_i(x) \\ (3) \quad \text{minimize}_{x \in \Omega, \ t \in \mathbb{R}^m} \quad & \sum_{i=1}^m t_i \\ \text{subject to} \quad & t_i \ge f_i(x), \quad i = 1, \dots, m \end{align*}$$
-**Proof** 
+#### $\boxed{\textbf{Proof}}$ ^skipped
 
 Let $v^*$ and $w^*$ denote the optimal objective values of $(2)$ and $(3)$, respectively. We prove equivalence ($v^* = w^*$) via a two-sided inequality.
 
@@ -372,7 +372,7 @@ Since every half-space is a convex set, and the intersection of convex sets rema
 		
 	- **归一性**：$\lambda_1 + \lambda_2 + \dots + \lambda_k = 1$
  
-- **Extreme Point (Vertex/Corner)**: A point $x$ within a polyhedron $P$ is an extreme point if it cannot be expressed as a **convex combination** of any two other distinct points in $P$.
+- **Extreme Point (Vertex/Corner)**: A point $x$ within a polyhedron $P$ is an extreme point if it cannot be expressed as a **nontrivial convex combination** of any two other distinct points in $P$.
     
 
 ## 3.3 Algebraic Representation: Basic Solutions
@@ -391,7 +391,6 @@ In the standard form LP, matrix $A$ is assumed to possess **linearly independent
 	$$
 	are linearly independent and $x_i=0$ for $i \neq B(1),\dots,B(m)$
 	
-	$\Rightarrow$ "稀疏性" 要求：存在 m 个线性无关的列，使得**所有其他列对应的变量都等于 0**
 
 > - 线性方程组 $Ax = b$ 的所有解构成的集合，是一个维度为 $n - m$ 的仿射子空间（Affine Subspace）。仿射子空间就是把一个线性子空间 (如 $Ax=0$ 的解 $N(A)$ ) 沿着某个向量(如 $Ax=b$ 的一个特解 $x_0$ ) 平移后得到的空间。
 > - 仿射子空间最核心的性质就是**平坦性**：解空间里任意两点的连线，仍然完全在解空间里；解空间里没有任何弯曲、凹陷或凸起。
@@ -401,7 +400,9 @@ In the standard form LP, matrix $A$ is assumed to possess **linearly independent
 
 **Procedure to Calculate a Basic Solution**:
 
-1. Choose $m$ linearly independent columns of $A$ (called basic variables) to form the basis matrix $A_B$.
+1. Choose $m$ linearly independent columns of $A$ (the variables with indices in $B$ are called basic variables) to form the basis matrix $A_B$.
+		$B=\{B(1),\dots,B(m)\}$ : Basic indices, $A_{B(1)},\dots,A_{B(m)}$ : Basic columns.
+		$x_{B(1)},\dots,x_{B(m)}$ : Basic variables.
 	
 2. Enforce all non-basic variables to equal 0 ($x_N = 0$).
 	
@@ -409,16 +410,63 @@ In the standard form LP, matrix $A$ is assumed to possess **linearly independent
 	
 3. Solve the remaining linear system to find the unique basic variables: $x_B = A_B^{-1}b$.
     
-- **Properties of Basic Solutions**: A basic solution is solely determined by the constraints and is independent of the objective function. The maximum possible number of basic solutions is finite, bounded by the combination formula $C(n,m) = \frac{n!}{m!(n-m)!}$.
+- **Properties of Basic Solutions**: A basic solution is solely determined by the constraints and is independent of the objective function. A BS could have no more than $m$ non-zeros. The maximum possible number of basic solutions is finite, bounded by the combination formula $C(n,m) = \frac{n!}{m!(n-m)!}$.
     
+    选取 $m$ 个线性无关的列（基变量）构成一个方阵，解出答案后令未选中的列对应的 $x$ 分量（非基变量）为 $0$，便得到一组BS。
 
-## 3.4 Basic Feasible Solutions (BFS) (基本可行解)
+## 3.4 Basic Feasible Solutions (BFS)
 
 **Definition**: A Basic Solution $x$ that additionally satisfies the non-negativity constraint $x \ge 0$.
 
 **The Equivalence Theorem**: For a standard form LP polyhedron, a point $x$ is a geometric **extreme point** if and only if it is an algebraic **basic feasible solution (BFS)**.
-    
 
+#### $\boxed{\textbf{Proof}}$ ^skipped
+
+**1. Extreme point $\Rightarrow$ BFS**
+
+First, if $x$ is an extreme point, then it must be a feasible solution. In the following, we prove by contradiction that $x$ must be a basic solution as well.
+
+Assume $x$ is not a basic solution.
+
+Let $B=\{B(1),\dots,B(k)\} = \{i:x_i>0\}$ to be the set of indices such that $x_i >0$（正分量指标集）, $k = |B|$ is the number of positive components of $x$.
+
+If $k>m$, $A_{B(1)},\dots,A_{B(k)}$ must be linear dependent. 
+>  $A_{B(1)},\dots,A_{B(k)}$ 是 $k$ 个 $\mathbb R^m$ 里的向量，数量超过了维度 $m$，它们必然线性相关。
+
+If $k \le m$ and they are linear independent, we can extend these columns with some other columns of $A$ to form a new basis. Then:
+$$\left. \begin{aligned}
+& \text{The non-basic variables are all} \space 0 \\
+& \text{Since}\space x\space \text{is a feasible solution,} \space Ax=b \space
+\end{aligned}
+\right\} \Rightarrow x\space \text{is a basic solution.}$$ This is contradictory with the assumption. **So if $x$ is not a basic solution, then $A_{B(1)},\dots,A_{B(k)}$ are linear dependent.**
+> 正分量是“还能微调的变量”；如果它们对应的 columns 线性相关，就说明这些正变量之间存在一种相互抵消的调整方式，使得 $Ax=b$ 不变。于是点还能沿某个方向移动，不是角点。basic solution 则要求所有还能动的正变量对应 columns 足够独立，使得这种内部移动方向不存在。
+
+This means $\exists \space a_i$ not all zeros s.t. $\Sigma_{i \in B}a_iA_i = 0$. Then we can construct a vector $\alpha\in \mathbb{R}^n, \alpha_i=\begin{cases}&a_i,&i\in B\\&0,&i\notin B.\end{cases}$ , so $A\alpha=0$.
+
+This means $\alpha$ is a direction that does not change the equation constraint $Ax=b$ because for a small $\epsilon$, $A(x+\epsilon\alpha)=Ax+\epsilon A\alpha =b+0=b$.
+
+We can choose a small $\epsilon$ s.t. $\begin{cases}&\bar{x}=x+\epsilon\alpha, \\ & \tilde{x} = x - \epsilon \alpha, \\ &\bar{x},\tilde{x} \neq x;\space\bar{x},\tilde{x}\ge0.\end{cases}$ with $\bar{x},\tilde{x}$ are both feasible points.
+
+Then we have $x=\frac{1}{2}\bar{x}+\frac{1}{2}\tilde{x}$, this means $x$ can be **represented as the convex combination of two different feasible points, which is contradictory with extreme point**. So $x$ must be BS with $x \ge 0$, so $x$ is BFS. 
+
+**2. BFS $\Rightarrow$ Extreme point**
+
+Suppose $x$ is BFS, in the following, we prove by contradiction that $x$ is an extreme point.
+
+Suppose $x$ is not an extreme point, then exists two different feasible points $y,z$ and a $\lambda \in (0,1)$ s.t. $x=\lambda y+(1-\lambda)z$.
+
+Since $x$ is BFS, $\exists\space \text{basis} \space B \space \text{s.t.} \space x_B=A_B^{-1}b,\quad x_N=0$. Here N is non-basis indices ( $\forall i \in N, x_i=0$ ).
+
+Since $y,z \ge 0$, and $x_i=\lambda y_i+(1-\lambda)z_i=0$ with $\lambda,1-\lambda>0$, so$$y_i=0,\quad z_i=0,\quad \forall i \in N$$
+So $y_N=0, \space z_N=0$.
+
+Since $y,z$ are feasible, so $Ay=b, Az=0\Rightarrow A_By_B+A_Ny_N=A_By_B=b$.
+
+Since $A_B$ is a basis matrix, so it is inversible. So $y_B=A_B^{-1}b$.
+
+Similarly, $z_B=A_B^{-1}b$. **So $x=y=z$, which is contradictory with our assumption.**
+
+So $x$ is an extreme point.
 ## 3.5 Fundamental Theorem of Linear Programming (线性规划基本定理)
 
 - **Theorem Statements**:
