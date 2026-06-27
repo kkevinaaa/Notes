@@ -175,7 +175,7 @@ $$\begin{align}
 $$
 ### 2.4.2 **Solution:**
 
-We can reformulate it into a **linear program** by introducing an auxiliary variable ΔΔ that acts as a lower bound for every separation time.
+We can reformulate it into a **linear program** by introducing an auxiliary variable Δ that acts as a lower bound for every separation time.
 
 **The equivalent linear program (P₂)** is
 $$
