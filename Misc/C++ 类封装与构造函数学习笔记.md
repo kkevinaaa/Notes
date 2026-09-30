@@ -281,6 +281,26 @@ explicit Lifecycle(DeviceConfig config) : config_(config) {}
 - **存储去向**：通过初始化列表 `: config_(config)`，把这份副本再次复制到成员变量 `config_` 中。总共发生了两次复制（外部 -> 形参，形参 -> 成员）。
 - **适用场景**：数据体积很小（如小于 16 字节），且不需要修改外部原件时。
 
+> [!Tips]
+> **初始化列表（Member Initializer List）**
+> 
+> 写法：
+> ```
+> ClassName(参数列表) 
+: member1(value1),      // 固定写法：成员名(初始值)
+member2(value2), 
+member3(value3) 
+{
+// 函数体
+}
+> ```
+> `config_(config)` 并不是一个简单的赋值，它表示：**调用成员变量 `config_` 的构造函数，并把参数 `config` 传进去**。因为 `config_` 的类型是 `DeviceConfig`（一个结构体），`DeviceConfig` 有编译器自动生成的**拷贝构造函数**（Copy Constructor）。
+
+|写法|执行阶段|本质操作|适用场景|
+|---|---|---|---|
+|**初始化列表**  <br>`: config_(config)`|在进入函数体**之前**执行|**初始化**（建造对象时直接给值）|所有成员**都推荐**用此方式，**必须**用于 const 成员、引用成员|
+|**函数体赋值**  <br>`{ config_ = config; }`|在进入函数体**之后**执行|**赋值**（对象已存在，擦掉旧值写新值）|仅适用于普通成员变量，但会多一次“先默认构造、再赋值”的开销|
+
 ### 2.3.2 引用传递（如果改成这样）：`const DeviceConfig& config`
 
 ```cpp
@@ -306,36 +326,7 @@ explicit Lifecycle(DeviceConfig* config) : config_(*config) {}
 - **存储去向**：初始化列表中必须用 `*config`（解引用）取出真正的数据，才能赋值给 `config_`。
 
 ---
-
-## 2.4 为什么代码中没写 `config_ = config;` 也能运行？（初始化列表的关键作用）
-
-假设构造函数体为空，只有函数签名：
-
-```cpp
-explicit Lifecycle(DeviceConfig config) {
-    // 空函数体
-}
-```
-
-此时，如果不使用 `: config_(config)` 初始化列表，成员变量 `config_` 会使用在 `struct DeviceConfig` 内部定义的默认值（数组填充了 5分钟、10分钟等）。**外部传入的 `config` 参数虽然被复制了一份，但完全没有被使用，直接丢失了。** 这是一个非常隐蔽的逻辑 bug。
-
-**正确的做法**，也是业界标准，必须使用 **初始化列表**：
-
-```cpp
-explicit Lifecycle(DeviceConfig config) : config_(config) {
-    // 此处在对象成员分配内存的瞬间，直接将参数 config 的值搬进 config_
-}
-```
-
-**进一步优化建议**：既然 `DeviceConfig` 有 16 字节，复制两次（外部 -> 形参，形参 -> 成员）虽然可以接受，但如果追求极致效率，**更推荐直接使用 `const` 引用传递**，只复制一次：
-
-```cpp
-explicit Lifecycle(const DeviceConfig& config) : config_(config) {}
-```
-
----
-
-## 2.5 总结速查表
+## 2.4 总结速查表
 
 | 传递方式       | 写法                       | 复制数据？     | 可否修改外部原件？     | 可否为空？          | 推荐使用场景                         |
 | :--------- | :----------------------- | :-------- | :------------ | :------------- | :----------------------------- |
